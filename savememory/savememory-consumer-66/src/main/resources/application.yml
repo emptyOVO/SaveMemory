@@ -1,0 +1,14 @@
+server:
+  port: 66
+
+    #开启降级feign.hystrix
+    #feign:
+    #hystrix:
+  #enabled: true
+
+#Eureka配置
+eureka:
+  client:
+    register-with-eureka: false # 不问Eureka注册自己
+    service-url:
+      defaultZone: http://smeureka5001.com:5001/eureka/,http://smeureka5002.com:5002/eureka/,http://smeureka5003.com:5003/eureka/
