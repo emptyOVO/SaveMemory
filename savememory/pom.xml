@@ -11,7 +11,6 @@
         <module>savememory-api</module>
         <module>savememory-provider-8001</module>
         <module>savememory-eureka-5001</module>
-        <module>savememory-eureka-5001</module>
         <module>savememory-eureka-5002</module>
         <module>savememory-eureka-5003</module>
         <module>savememory-provider-8002</module>

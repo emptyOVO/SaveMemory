@@ -58,7 +58,7 @@ public class UserController {
     public Result<?> sendCaptcha(@PathVariable("phone_number") String phone) throws Exception {
         String isExit = redisTemplate.opsForValue().get(phone);
         if (!StringUtils.isEmpty(isExit)) {
-            return new Result<>(200, "phoneNumber exits,do not try again", null);
+            return Result.fail(200, "phoneNumber exits,do not try again");
         } else {
             HashMap<String, String> code = new HashMap<>();
             String captcha = CaptchaGeneratorUtil.creatCaptcha();
@@ -66,9 +66,9 @@ public class UserController {
             boolean result = AliyunSmsUtil.SendCaptcha(phone, code);
             if (result) {
                 redisTemplate.opsForValue().set(phone, captcha, 1, TimeUnit.MINUTES);
-                return new Result<>(200, "captcha sending success!", null);
+                return Result.fail(200, "captcha sending success!");
             }
-            return new Result<>(400, "captcha sending fail", null);
+            return Result.fail(400, "captcha sending fail");
         }
     }
 

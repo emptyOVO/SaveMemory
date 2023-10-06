@@ -1,9 +1,6 @@
 package com.feige.savememory.vo;
 
-import com.feige.savememory.entity.AddressList;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class AddressListVo {
     private ArrayList<Add> add;

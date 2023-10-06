@@ -20,7 +20,7 @@ public class SaveMemoryApplication_8003 {
         SpringApplication.run(SaveMemoryApplication_8003.class, args);
     }
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder03(){
         return new BCryptPasswordEncoder();
     }
 
