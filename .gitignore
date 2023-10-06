@@ -24,9 +24,5 @@ hs_err_pid*
 replay_pid*
 
 
-\savememory\savememory-provider-8001\src\main\resources\application.yml
-\savememory\savememory-provider-8001\src\main\resources\aliyunsms.properties
-\savememory\savememory-provider-8002\src\main\resources\application.yml
-\savememory\savememory-provider-8002\src\main\resources\aliyunsms.properties
-\savememory\savememory-provider-8003\src\main\resources\application.yml
-\savememory\savememory-provider-8003\src\main\resources\aliyunsms.properties
+*.yml
+*.properties
