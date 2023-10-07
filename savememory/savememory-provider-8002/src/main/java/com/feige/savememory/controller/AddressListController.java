@@ -7,7 +7,7 @@ import com.feige.savememory.baseresponse.Result;
 import com.feige.savememory.entity.AddressList;
 import com.feige.savememory.service.IAddressListService;
 import com.feige.savememory.service.IAdrTimeLineService;
-import com.feige.savememory.util.JwtUtil;
+import com.feige.savememory.handler.util.JwtUtil;
 import com.feige.savememory.vo.AddAddressList;
 import com.feige.savememory.vo.UpdateAddressList;
 import org.springframework.beans.factory.annotation.Autowired;

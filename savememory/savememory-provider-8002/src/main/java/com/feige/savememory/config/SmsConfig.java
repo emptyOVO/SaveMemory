@@ -1,6 +1,6 @@
 package com.feige.savememory.config;
 
-import com.feige.savememory.util.AliyunSmsUtil;
+import com.feige.savememory.handler.util.AliyunSmsUtil;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

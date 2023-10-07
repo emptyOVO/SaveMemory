@@ -6,7 +6,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.feige.savememory.baseresponse.Result;
 import com.feige.savememory.entity.Todo;
 import com.feige.savememory.service.ITodoService;
-import com.feige.savememory.util.JwtUtil;
+import com.feige.savememory.handler.util.JwtUtil;
 import com.feige.savememory.vo.AddTodo;
 import com.feige.savememory.vo.UpdateTodo;
 import org.springframework.beans.factory.annotation.Autowired;

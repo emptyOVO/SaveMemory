@@ -13,6 +13,7 @@
         <module name="savememory-provider-8002" />
         <module name="savememory-eureka-5002" />
         <module name="savememory-eureka-5003" />
+        <module name="savememory-consumer-hystrix-dashboard" />
         <module name="savememory-provider-8003" />
         <module name="savememory-api" />
       </profile>

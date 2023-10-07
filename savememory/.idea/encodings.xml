@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/savememory-consumer-66/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/savememory-consumer-80/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/savememory-consumer-80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/savememory-consumer-hystrix-dashboard/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/savememory-consumer-hystrix-dashboard/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/savememory-eureka-5001/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/savememory-eureka-5001/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/savememory-eureka-5002/src/main/java" charset="UTF-8" />

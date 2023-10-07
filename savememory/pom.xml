@@ -16,6 +16,7 @@
         <module>savememory-provider-8002</module>
         <module>savememory-provider-8003</module>
         <module>savememory-consumer-66</module>
+        <module>savememory-consumer-hystrix-dashboard</module>
     </modules>
 
     <!--打包方式  pom-->

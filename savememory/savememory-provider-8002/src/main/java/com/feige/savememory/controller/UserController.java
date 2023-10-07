@@ -8,9 +8,9 @@ import com.feige.savememory.entity.Binding;
 import com.feige.savememory.entity.User;
 import com.feige.savememory.service.IBindingService;
 import com.feige.savememory.service.IUserService;
-import com.feige.savememory.util.AliyunSmsUtil;
-import com.feige.savememory.util.CaptchaGeneratorUtil;
-import com.feige.savememory.util.JwtUtil;
+import com.feige.savememory.handler.util.AliyunSmsUtil;
+import com.feige.savememory.handler.util.CaptchaGeneratorUtil;
+import com.feige.savememory.handler.util.JwtUtil;
 import com.feige.savememory.vo.ForgetUser;
 import com.feige.savememory.vo.Identify;
 import com.feige.savememory.vo.LoginUser;
@@ -66,7 +66,7 @@ public class UserController {
             boolean result = AliyunSmsUtil.SendCaptcha(phone, code);
             if (result) {
                 redisTemplate.opsForValue().set(phone, captcha, 1, TimeUnit.MINUTES);
-                return Result.fail(200, "captcha sending success!");
+                return Result.success(null, "captcha sending success!");
             }
             return Result.fail(400, "captcha sending fail");
         }
@@ -152,7 +152,7 @@ public class UserController {
     }
 
 
-    @PatchMapping("/user/identify")
+    @PutMapping("/user/identify")
     public Result<?> UserIdentify(@RequestHeader String token,@RequestBody Identify info){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
