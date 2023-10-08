@@ -3,6 +3,18 @@ package com.feige.savememory.vo;
 import java.util.Date;
 
 public class Add {
+    @Override
+    public String toString() {
+        return "Add{" +
+                "aid=" + aid +
+                ", nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", profile='" + profile + '\'' +
+                ", realname='" + realname + '\'' +
+                ", remark='" + remark + '\'' +
+                ", updateAt=" + updateAt +
+                '}';
+    }
 
     private Long aid;
 

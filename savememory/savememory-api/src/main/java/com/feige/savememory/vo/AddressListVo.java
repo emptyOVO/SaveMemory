@@ -12,6 +12,14 @@ public class AddressListVo {
     }
 
 
+    @Override
+    public String toString() {
+        return "AddressListVo{" +
+                "add=" + add +
+                ", bind=" + bind +
+                '}';
+    }
+
     public ArrayList<Add> getAdd() { return add; }
     public void setAdd(ArrayList<Add> value) { this.add = value; }
 

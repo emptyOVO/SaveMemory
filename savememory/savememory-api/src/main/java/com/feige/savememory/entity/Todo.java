@@ -76,5 +76,15 @@ public class Todo implements Serializable {
         this.createAt = createAt;
     }
 
-
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "title='" + title + '\'' +
+                ", tid=" + tid +
+                ", uid=" + uid +
+                ", todo='" + todo + '\'' +
+                ", done=" + done +
+                ", createAt=" + createAt +
+                '}';
+    }
 }

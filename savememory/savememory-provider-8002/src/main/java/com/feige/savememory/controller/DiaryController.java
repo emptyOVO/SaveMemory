@@ -6,8 +6,8 @@ import com.feige.savememory.entity.Diary;
 import com.feige.savememory.entity.Image;
 import com.feige.savememory.service.IDiaryService;
 import com.feige.savememory.service.IImageService;
-import com.feige.savememory.handler.util.JwtUtil;
-import com.feige.savememory.handler.util.PictureUploadUtil;
+import com.feige.savememory.util.JwtUtil;
+import com.feige.savememory.util.PictureUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -53,7 +53,7 @@ public class DiaryController {
 
 
     @PostMapping("/diary/write")
-    public Result<?> addDiary(@RequestHeader String token
+    public Result<?> addDiary(@RequestHeader("token") String token
             ,@RequestParam("image") MultipartFile[] files
             ,@RequestParam("title") String title,@RequestParam("text") String text){
         if(token!=null) {
@@ -74,7 +74,7 @@ public class DiaryController {
     }
 
     @DeleteMapping("/diary/{did}")
-    public Result<?> deleteDiary(@RequestHeader String token,@PathVariable("did") String did){
+    public Result<?> deleteDiary(@RequestHeader("token") String token,@PathVariable("did") String did){
         Long did1 = Long.valueOf(did);
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -87,10 +87,10 @@ public class DiaryController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/diary/update")
-    public Result<?> updateDiary(@RequestHeader String token
-            ,@RequestParam("title") String title,@RequestParam String text
-            ,@RequestParam("image") MultipartFile[] files,@RequestParam String did){
+    @PutMapping("/diary/update")
+    public Result<?> updateDiary(@RequestHeader("token") String token
+            ,@RequestParam("title") String title,@RequestParam("text") String text
+            ,@RequestParam("image") MultipartFile[] files,@RequestParam("did") String did){
         if(token!=null) {
             Long rdid = Long.valueOf(did);
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -111,7 +111,7 @@ public class DiaryController {
     }
 
     @GetMapping("/diary/{did}")
-    public Result<?> getDiaryDetail(@RequestHeader String token,@PathVariable("did") String did){
+    public Result<?> getDiaryDetail(@RequestHeader("token") String token,@PathVariable("did") String did){
         Long rdid = Long.valueOf(did);
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -125,7 +125,7 @@ public class DiaryController {
     }
 
     @GetMapping("/diary/list")
-    public Result<?> diaryList(@RequestHeader String token){
+    public Result<?> diaryList(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -138,7 +138,7 @@ public class DiaryController {
     }
 
     @GetMapping("/diary/list/{pid}")
-    public Result<?> childGetDiaryList(@RequestHeader String token,@PathVariable("pid") String pid1){
+    public Result<?> childGetDiaryList(@RequestHeader("token") String token,@PathVariable("pid") String pid1){
         Long pid = Long.valueOf(pid1);
         if(token!=null){
             DecodedJWT keyWord = JwtUtil.parseToken(token);

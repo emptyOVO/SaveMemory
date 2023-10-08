@@ -75,4 +75,15 @@ public class AdrTimeLine implements Serializable {
      * 插入时间/更新时间
      */
     private Date updateAt;
+
+    @Override
+    public String toString() {
+        return "AdrTimeLine{" +
+                "adrtlid=" + adrtlid +
+                ", aid=" + aid +
+                ", remark='" + remark + '\'' +
+                ", uid=" + uid +
+                ", updateAt=" + updateAt +
+                '}';
+    }
 }

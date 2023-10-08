@@ -44,4 +44,16 @@ public class UserReg {
 
     public String getUsername() { return username; }
     public void setUsername(String value) { this.username = value; }
+
+    @Override
+    public String toString() {
+        return "UserReg{" +
+                "captcha='" + captcha + '\'' +
+                ", identity='" + identity + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

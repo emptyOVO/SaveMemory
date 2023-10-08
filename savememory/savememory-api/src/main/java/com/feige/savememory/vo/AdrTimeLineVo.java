@@ -15,4 +15,12 @@ public class AdrTimeLineVo {
 
     public String getRemark() { return remark; }
     public void setRemark(String value) { this.remark = value; }
+
+    @Override
+    public String toString() {
+        return "AdrTimeLineVo{" +
+                "aid=" + aid +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

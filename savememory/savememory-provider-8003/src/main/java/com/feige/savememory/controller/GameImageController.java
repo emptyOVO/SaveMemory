@@ -6,7 +6,6 @@ import com.feige.savememory.entity.GameImage;
 import com.feige.savememory.service.IBindingService;
 import com.feige.savememory.service.IGameImageService;
 import com.feige.savememory.util.JwtUtil;
-import com.feige.savememory.util.PictureUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,14 +20,12 @@ public class GameImageController {
     @Autowired
     private IGameImageService gameImageService;
 
-    @Autowired
-    private PictureUploadUtil pictureUploadUtil;
 
     @Autowired
     private IBindingService bindingService;
 
     @PostMapping("/game")
-    public Result<?> addGameImage(@RequestHeader String token, @RequestParam("realname") String realname
+    public Result<?> addGameImage(@RequestHeader("token") String token, @RequestParam("realname") String realname
             , @RequestParam("nickname") String nickname, @RequestParam("pictures")MultipartFile[] files
             ,@RequestParam("uid")Long uid){
         if(token!=null) {
@@ -44,7 +41,7 @@ public class GameImageController {
     }
 
     @GetMapping("game/info/{uid}")
-    public Result<?> gameInfo(@RequestHeader String token,@PathVariable("uid") String uid1){
+    public Result<?> gameInfo(@RequestHeader("token") String token,@PathVariable("uid") String uid1){
         if(token!=null) {
             Long uid = Long.valueOf(uid1);
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -58,8 +55,8 @@ public class GameImageController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/game")
-    public Result<?> updGameImage(@RequestHeader String token, @RequestParam("realname") String realname
+    @PutMapping("/game")
+    public Result<?> updGameImage(@RequestHeader("token") String token, @RequestParam("realname") String realname
             , @RequestParam("nickname") String nickname, @RequestParam("picture")MultipartFile file
             ,@RequestParam("gid")Long gid){
         if(token!=null) {
@@ -72,7 +69,7 @@ public class GameImageController {
     }
 
     @DeleteMapping("game/{gid}")
-    public Result<?> deleteGameImage(@RequestHeader String token,@PathVariable("gid") String gid1){
+    public Result<?> deleteGameImage(@RequestHeader("token") String token,@PathVariable("gid") String gid1){
         Long gid = Long.valueOf(gid1);
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -84,7 +81,7 @@ public class GameImageController {
     }
 
     @GetMapping("/play/pic")
-    public Result<?> playPic(@RequestHeader String token){
+    public Result<?> playPic(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {

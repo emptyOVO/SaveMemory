@@ -15,4 +15,12 @@ public class LoginUser {
 
     public String getUsername() { return username; }
     public void setUsername(String value) { this.username = value; }
+
+    @Override
+    public String toString() {
+        return "LoginUser{" +
+                "password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

@@ -15,4 +15,12 @@ public class BindAdrTimeLineVo {
 
     public Long getUid() { return uid; }
     public void setUid(Long value) { this.uid = value; }
+
+    @Override
+    public String toString() {
+        return "BindAdrTimeLineVo{" +
+                "remark='" + remark + '\'' +
+                ", uid=" + uid +
+                '}';
+    }
 }

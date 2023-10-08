@@ -52,4 +52,16 @@ public class Bind {
 
     public String getUsername() { return username; }
     public void setUsername(String value) { this.username = value; }
+
+    @Override
+    public String toString() {
+        return "Bind{" +
+                "identity='" + identity + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", profile='" + profile + '\'' +
+                ", realname='" + realname + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

@@ -98,4 +98,17 @@ public class Image implements Serializable {
         this.diaryId = diaryId;
     }
 
+    @Override
+    public String toString() {
+        return "Image{" +
+                "imid=" + imid +
+                ", belongs='" + belongs + '\'' +
+                ", uid=" + uid +
+                ", image='" + image + '\'' +
+                ", datetime=" + datetime +
+                ", memoryId=" + memoryId +
+                ", diaryId=" + diaryId +
+                ", adrslId=" + adrslId +
+                '}';
+    }
 }

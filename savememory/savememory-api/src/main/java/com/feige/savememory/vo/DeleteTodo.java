@@ -15,4 +15,12 @@ public class DeleteTodo {
 
     public long getTid() { return tid; }
     public void setTid(long value) { this.tid = value; }
+
+    @Override
+    public String toString() {
+        return "DeleteTodo{" +
+                "done=" + done +
+                ", tid=" + tid +
+                '}';
+    }
 }

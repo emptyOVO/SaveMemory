@@ -1,7 +1,7 @@
 package com.feige.savememory.handler;
 
 import com.feige.savememory.baseresponse.Result;
-import com.feige.savememory.handler.util.ServletUtil;
+import com.feige.savememory.util.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

@@ -25,4 +25,12 @@ public class Identify {
     public void setRealname(String realname) {
         this.realname = realname;
     }
+
+    @Override
+    public String toString() {
+        return "Identify{" +
+                "id_number='" + id_number + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
 }

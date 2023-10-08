@@ -9,8 +9,8 @@ import com.feige.savememory.entity.Image;
 import com.feige.savememory.entity.Memory;
 import com.feige.savememory.entity.Todo;
 import com.feige.savememory.service.*;
-import com.feige.savememory.handler.util.JwtUtil;
-import com.feige.savememory.handler.util.PictureUploadUtil;
+import com.feige.savememory.util.JwtUtil;
+import com.feige.savememory.util.PictureUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -76,7 +76,7 @@ public class MemoryController {
 
 
     @PostMapping("/memory/pupload")
-    public Result<?> pUploadMemory(@RequestHeader String token, @RequestParam("pictures")MultipartFile[] files
+    public Result<?> pUploadMemory(@RequestHeader("token") String token, @RequestParam("pictures")MultipartFile[] files
            , @RequestParam("datetime")String date,@RequestParam("detail") String detail) throws ParseException {
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -92,8 +92,8 @@ public class MemoryController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/memory/pupdate")
-    public Result<?> pUpdateMemory(@RequestHeader String token, @RequestParam("pictures")MultipartFile[] files
+    @PutMapping("/memory/pupdate")
+    public Result<?> pUpdateMemory(@RequestHeader("token") String token, @RequestParam("pictures")MultipartFile[] files
             , @RequestParam("datetime")String date,@RequestParam("detail") String detail
             ,@RequestParam("meid") Long meid) throws ParseException {
         if(token!=null) {
@@ -124,7 +124,7 @@ public class MemoryController {
     }
 
     @DeleteMapping("/memory/pdelete")
-    public Result<?> deleteMemory(@RequestHeader String token,@RequestBody String meid){
+    public Result<?> deleteMemory(@RequestHeader("token") String token,@RequestBody String meid){
         JSONObject jsonObject = JSON.parseObject(meid);
         Long toMeid = jsonObject.getLong("meid");
         if(token!=null){
@@ -144,7 +144,7 @@ public class MemoryController {
     }
 
     @GetMapping("/pmemory")
-    public Result<?> getPMemory(@RequestHeader String token){
+    public Result<?> getPMemory(@RequestHeader("token") String token){
         if(token!=null){
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if(!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")){
@@ -166,7 +166,7 @@ public class MemoryController {
     }
 
     @GetMapping("/memory/{pid}")
-    public Result<?> childGetMemory(@RequestHeader String token,@PathVariable("pid") String pid1){
+    public Result<?> childGetMemory(@RequestHeader("token") String token,@PathVariable("pid") String pid1){
         if(token!=null){
             Long pid = Long.valueOf(pid1);
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -194,7 +194,7 @@ public class MemoryController {
 
 
     @PostMapping("/memory/cupload")
-    public Result<?> pUploadMemory(@RequestHeader String token, @RequestParam("pictures")MultipartFile[] files
+    public Result<?> pUploadMemory(@RequestHeader("token") String token, @RequestParam("pictures")MultipartFile[] files
             , @RequestParam("datetime")String date,@RequestParam("detail") String detail,@RequestParam("pid") Long pid) throws ParseException {
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -219,7 +219,7 @@ public class MemoryController {
 
 
     @DeleteMapping("/memory/cdelete")
-    public Result<?> childDeleteMemory(@RequestHeader String token,@RequestBody String meid){
+    public Result<?> childDeleteMemory(@RequestHeader("token") String token,@RequestBody String meid){
         JSONObject jsonObject = JSON.parseObject(meid);
         Long toMeid = jsonObject.getLong("meid");
         if(token!=null){
@@ -238,8 +238,8 @@ public class MemoryController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/memory/cupdate")
-    public Result<?> cUpdateMemory(@RequestHeader String token, @RequestParam("pictures")MultipartFile[] files
+    @PutMapping("/memory/cupdate")
+    public Result<?> cUpdateMemory(@RequestHeader("token") String token, @RequestParam("pictures")MultipartFile[] files
             , @RequestParam("datetime")String date,@RequestParam("detail") String detail
             ,@RequestParam("meid") Long meid,@RequestParam("pid") Long pid) throws ParseException {
         if(token!=null) {

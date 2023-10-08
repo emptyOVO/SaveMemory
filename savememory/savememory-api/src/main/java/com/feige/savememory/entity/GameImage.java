@@ -75,4 +75,14 @@ public class GameImage implements Serializable {
      */
     private Long uid;
 
+    @Override
+    public String toString() {
+        return "GameImage{" +
+                "gid=" + gid +
+                ", gimage='" + gimage + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", realname='" + realname + '\'' +
+                ", uid=" + uid +
+                '}';
+    }
 }

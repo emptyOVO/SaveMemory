@@ -3,7 +3,7 @@ package com.feige.savememory.controller;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.feige.savememory.baseresponse.Result;
 import com.feige.savememory.service.IMessageService;
-import com.feige.savememory.handler.util.JwtUtil;
+import com.feige.savememory.util.JwtUtil;
 import com.feige.savememory.vo.MessageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +27,7 @@ public class MessageController {
     private IMessageService messageService;
 
     @PostMapping("/sendmsg")
-    public Result<?> sendMessage(@RequestHeader String token, @RequestBody MessageVo messageVo){
+    public Result<?> sendMessage(@RequestHeader("token") String token, @RequestBody MessageVo messageVo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -40,7 +40,7 @@ public class MessageController {
     }
 
     @GetMapping("/getmsglist/{to_user_id}")
-    public Result<?> getMsgList(@RequestHeader String token,@PathVariable("to_user_id") Long toUserId ){
+    public Result<?> getMsgList(@RequestHeader("token") String token,@PathVariable("to_user_id") Long toUserId ){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {

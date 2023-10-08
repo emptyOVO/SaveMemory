@@ -32,4 +32,14 @@ public class BindUser {
 
     public String getUsername() { return username; }
     public void setUsername(String value) { this.username = value; }
+
+    @Override
+    public String toString() {
+        return "BindUser{" +
+                "idNumber='" + idNumber + '\'' +
+                ", phone='" + phone + '\'' +
+                ", realname='" + realname + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

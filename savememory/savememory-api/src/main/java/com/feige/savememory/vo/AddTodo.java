@@ -22,4 +22,13 @@ public class AddTodo {
 
     public String getTodo() { return todo; }
     public void setTodo(String value) { this.todo = value; }
+
+    @Override
+    public String toString() {
+        return "AddTodo{" +
+                "done=" + done +
+                ", title='" + title + '\'' +
+                ", todo='" + todo + '\'' +
+                '}';
+    }
 }

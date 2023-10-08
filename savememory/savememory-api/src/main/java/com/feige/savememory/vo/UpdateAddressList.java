@@ -33,5 +33,13 @@ public class UpdateAddressList {
     public String getRealname() { return realname; }
     public void setRealname(String value) { this.realname = value; }
 
-
+    @Override
+    public String toString() {
+        return "UpdateAddressList{" +
+                "aid=" + aid +
+                ", nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
 }

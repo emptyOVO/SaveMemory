@@ -15,4 +15,12 @@ public class AdrTimeLineUpdVo {
 
     public String getRemark() { return remark; }
     public void setRemark(String value) { this.remark = value; }
+
+    @Override
+    public String toString() {
+        return "AdrTimeLineUpdVo{" +
+                "adrtlid=" + adrtlid +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

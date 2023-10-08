@@ -15,7 +15,14 @@ public class AddAddressList {
      */
     private String realname;
 
-
+    @Override
+    public String toString() {
+        return "AddAddressList{" +
+                "nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
 
     public String getNickname() { return nickname; }
     public void setNickname(String value) { this.nickname = value; }

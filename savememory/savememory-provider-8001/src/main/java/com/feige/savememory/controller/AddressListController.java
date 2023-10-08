@@ -33,7 +33,7 @@ public class AddressListController {
 
 
     @PostMapping("/addresslist")
-    public Result<?> postAddressList(@RequestHeader String token,@RequestBody AddAddressList addAddressList){
+    public Result<?> postAddressList(@RequestHeader("token") String token,@RequestBody AddAddressList addAddressList){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -44,8 +44,8 @@ public class AddressListController {
     }
 
 
-    @PatchMapping("/addresslist")
-    public Result<?> patchAddressList(@RequestHeader String token,@RequestBody UpdateAddressList updateAddressList){
+    @PutMapping("/addresslist")
+    public Result<?> patchAddressList(@RequestHeader("token") String token,@RequestBody UpdateAddressList updateAddressList){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -55,7 +55,7 @@ public class AddressListController {
         }return Result.fail(401,"未接收到token");
     }
     @DeleteMapping("/addresslist")
-    public Result<?> deleteAddressList(@RequestHeader String token,@RequestBody String aid){
+    public Result<?> deleteAddressList(@RequestHeader("token") String token,@RequestBody String aid){
         JSONObject jsonObject = JSON.parseObject(aid);
         Long aid1 = Long.valueOf(jsonObject.getString("aid"));
         if(token!=null) {
@@ -68,7 +68,7 @@ public class AddressListController {
     }
 
     @GetMapping("/addresslist/addinfo/{aid}")
-    public Result<?> getAAdrlInfo(@RequestHeader String token ,@PathVariable("aid") String aid){
+    public Result<?> getAAdrlInfo(@RequestHeader("token") String token ,@PathVariable("aid") String aid){
         Long raid = Long.valueOf(aid);
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -80,7 +80,7 @@ public class AddressListController {
     }
 
     @GetMapping("/addresslist/bindinfo/{bid}")
-    public Result<?> getBAdrlInfo(@RequestHeader String token ,@PathVariable("bid") String bid){
+    public Result<?> getBAdrlInfo(@RequestHeader("token") String token ,@PathVariable("bid") String bid){
         Long rbid = Long.valueOf(bid);
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
@@ -92,7 +92,7 @@ public class AddressListController {
     }
 
     @GetMapping("/addresslist")
-    public Result<?> getAddressList(@RequestHeader String token){
+    public Result<?> getAddressList(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -103,7 +103,7 @@ public class AddressListController {
     }
 
     @GetMapping("/play/fill")
-    public Result<?> fillGame(@RequestHeader String token){
+    public Result<?> fillGame(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {

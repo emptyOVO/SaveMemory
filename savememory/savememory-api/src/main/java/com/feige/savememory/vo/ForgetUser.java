@@ -22,4 +22,13 @@ public class ForgetUser {
 
     public String getUsername() { return username; }
     public void setUsername(String value) { this.username = value; }
+
+    @Override
+    public String toString() {
+        return "ForgetUser{" +
+                "captcha='" + captcha + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

@@ -39,7 +39,7 @@ public class ImageController {
     private IAddressListService addressListService;
 
     @PostMapping("/user/profile")
-    public Result<?> uploadUserProfile(@RequestParam("profile") MultipartFile file, @RequestHeader String token) {
+    public Result<?> uploadUserProfile(@RequestParam("profile") MultipartFile file, @RequestHeader("token") String token) {
         if (token != null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -58,7 +58,7 @@ public class ImageController {
 
     @PostMapping("/addresslist/profile")
     public Result<?> uploadAddressProfile(@RequestParam("profile") MultipartFile file
-            , @RequestHeader String token,@RequestParam("aid") String aid) {
+            , @RequestHeader("token") String token,@RequestParam("aid") String aid) {
         Long raid = Long.valueOf(aid);
         if (token != null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);

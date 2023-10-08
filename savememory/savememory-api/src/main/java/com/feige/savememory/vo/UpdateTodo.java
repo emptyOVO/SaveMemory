@@ -19,4 +19,11 @@ private boolean done;
     public long getTid() { return tid; }
     public void setTid(long value) { this.tid = value; }
 
+    @Override
+    public String toString() {
+        return "UpdateTodo{" +
+                "done=" + done +
+                ", tid=" + tid +
+                '}';
+    }
 }

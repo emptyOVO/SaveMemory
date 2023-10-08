@@ -26,7 +26,7 @@ public class AdrTimeLineController {
     private IAdrTimeLineService adrTimeLineService;
 
     @PostMapping("/addtimeline")
-    public Result<?> addTimeLine(@RequestHeader String token, @RequestBody AdrTimeLineVo adrTimeLineVo){
+    public Result<?> addTimeLine(@RequestHeader("token") String token, @RequestBody AdrTimeLineVo adrTimeLineVo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -37,7 +37,7 @@ public class AdrTimeLineController {
     }
 
     @DeleteMapping("/deletetimeline")
-    public Result<?> addTimeLineDelete(@RequestHeader String token, @RequestBody String adrtlid){
+    public Result<?> addTimeLineDelete(@RequestHeader("token") String token, @RequestBody String adrtlid){
         JSONObject jsonObject = JSON.parseObject(adrtlid);
         Long adrtlid1 = jsonObject.getLong("adrtlid");
         if(token!=null) {
@@ -50,7 +50,7 @@ public class AdrTimeLineController {
     }
 
     @PostMapping("/bindtimeline")
-    public Result<?> bindTimeLine(@RequestHeader String token, @RequestBody BindAdrTimeLineVo bindAdrTimeLineVo){
+    public Result<?> bindTimeLine(@RequestHeader("token") String token, @RequestBody BindAdrTimeLineVo bindAdrTimeLineVo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -60,8 +60,8 @@ public class AdrTimeLineController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/updtimeline")
-    public Result<?> addTimeLineUpd(@RequestHeader String token, @RequestBody AdrTimeLineUpdVo adrTimeLineUpdVo){
+    @PutMapping("/updtimeline")
+    public Result<?> addTimeLineUpd(@RequestHeader("token") String token, @RequestBody AdrTimeLineUpdVo adrTimeLineUpdVo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {

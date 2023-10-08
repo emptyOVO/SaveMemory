@@ -117,7 +117,7 @@ public class UserController {
     }
 
     @GetMapping("/user/info")
-    public Result<?> userInfo(@RequestHeader String token){
+    public Result<?> userInfo(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -127,8 +127,8 @@ public class UserController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/user/updpwd")
-    public Result<?> updatePassword(@RequestHeader String token,@RequestBody LoginUser loginUser){
+    @PutMapping("/user/updpwd")
+    public Result<?> updatePassword(@RequestHeader("token") String token,@RequestBody LoginUser loginUser){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -138,8 +138,8 @@ public class UserController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/user/updnn")
-    public Result<?> updateNickname(@RequestHeader String token,@RequestBody String nickname){
+    @PutMapping("/user/updnn")
+    public Result<?> updateNickname(@RequestHeader("token") String token,@RequestBody String nickname){
         JSONObject jsonObject = JSON.parseObject(nickname);
         String ToNickname = jsonObject.getString("nickname");
         if(token!=null) {
@@ -153,7 +153,7 @@ public class UserController {
 
 
     @PutMapping("/user/identify")
-    public Result<?> UserIdentify(@RequestHeader String token,@RequestBody Identify info){
+    public Result<?> UserIdentify(@RequestHeader("token") String token,@RequestBody Identify info){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -167,7 +167,7 @@ public class UserController {
 
 
     @GetMapping("/sos")
-    public Result<?> getSosNum(@RequestHeader String token){
+    public Result<?> getSosNum(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -180,7 +180,7 @@ public class UserController {
     }
 
     @PostMapping("/sos")
-    public Result<?> postSosNum(@RequestHeader String token,@RequestBody String phone){
+    public Result<?> postSosNum(@RequestHeader("token") String token,@RequestBody String phone){
         JSONObject jsonObject = JSON.parseObject(phone);
         String ToPhone = jsonObject.getString("phone");
         if(token!=null) {
@@ -194,8 +194,8 @@ public class UserController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/sos")
-    public Result<?> updateSosNum(@RequestHeader String token,@RequestBody String phone){
+    @PutMapping("/sos")
+    public Result<?> updateSosNum(@RequestHeader("token") String token,@RequestBody String phone){
         JSONObject jsonObject = JSON.parseObject(phone);
         String ToPhone = jsonObject.getString("phone");
         if(token!=null) {
@@ -210,7 +210,7 @@ public class UserController {
     }
 
     @DeleteMapping("/sos")
-    public Result<?> deleteSosNum(@RequestHeader String token){
+    public Result<?> deleteSosNum(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
@@ -225,10 +225,10 @@ public class UserController {
 
 
     @GetMapping("/parent/info")
-    public Result<?> parentInfo(@RequestHeader String token){
+    public Result<?> parentInfo(@RequestHeader("token") String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
-            if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("0")) {
+            if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("1")) {
                 List<Binding> bindings = bindingService.getParentId(keyWord.getClaim("uid").asLong());
                 ArrayList<Map<String, Object>> list = new ArrayList<>();
                 for (Binding binding : bindings) {

@@ -25,7 +25,7 @@ public class BindingController {
     private IUserService userService;
 
     @PostMapping("/bind")
-    public Result<?> addBinding(@RequestHeader String token, @RequestBody BindUser bindUser){
+    public Result<?> addBinding(@RequestHeader("token") String token, @RequestBody BindUser bindUser){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()&&keyWord.getClaim("identity").asString().equals("1")) {
@@ -46,7 +46,7 @@ public class BindingController {
     }
 
     @DeleteMapping("/bind")
-    public Result<?> deleteBinding(@RequestHeader String token,@RequestBody String uid) {
+    public Result<?> deleteBinding(@RequestHeader("token") String token,@RequestBody String uid) {
         JSONObject jsonObject = JSON.parseObject(uid);
         Long resUid = jsonObject.getLong("uid");
         if(token!=null) {

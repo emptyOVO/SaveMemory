@@ -34,7 +34,7 @@ public class TodoController {
     private ITodoService todoService;
 
     @PostMapping("/add")
-    public Result<?> add(@RequestHeader String token, @RequestBody AddTodo todo){
+    public Result<?> add(@RequestHeader("token") String token, @RequestBody AddTodo todo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -45,7 +45,7 @@ public class TodoController {
     }
 
     @GetMapping("/list")
-    public Result<?> list(@RequestHeader String token){
+    public Result<?> list(@RequestHeader("token")String token){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {
@@ -56,7 +56,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/delete")
-    public Result<?> delete(@RequestHeader String token, @RequestBody String tid){
+    public Result<?> delete(@RequestHeader("token") String token, @RequestBody String tid){
         JSONObject jsonObject = JSON.parseObject(tid);
         Long tid1 = Long.valueOf(jsonObject.getString("tid"));
         if(token!=null) {
@@ -68,8 +68,8 @@ public class TodoController {
         }return Result.fail(401,"未接收到token");
     }
 
-    @PatchMapping("/update")
-    public Result<?> update(@RequestHeader String token, @RequestBody UpdateTodo updateTodo){
+    @PutMapping("/update")
+    public Result<?> update(@RequestHeader("token") String token, @RequestBody UpdateTodo updateTodo){
         if(token!=null) {
             DecodedJWT keyWord = JwtUtil.parseToken(token);
             if (!keyWord.getClaim("blocked").asBoolean()) {

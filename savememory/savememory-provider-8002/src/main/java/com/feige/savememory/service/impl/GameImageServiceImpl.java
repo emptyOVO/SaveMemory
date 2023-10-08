@@ -7,7 +7,7 @@ import com.feige.savememory.entity.GameImage;
 import com.feige.savememory.mapper.GameImageMapper;
 import com.feige.savememory.service.IBindingService;
 import com.feige.savememory.service.IGameImageService;
-import com.feige.savememory.handler.util.PictureUploadUtil;
+import com.feige.savememory.util.PictureUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

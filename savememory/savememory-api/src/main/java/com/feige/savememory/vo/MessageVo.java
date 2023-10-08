@@ -25,4 +25,12 @@ public class MessageVo {
     public void setTo_user_id(Long to_user_id) {
         this.to_user_id = to_user_id;
     }
+
+    @Override
+    public String toString() {
+        return "MessageVo{" +
+                "content='" + content + '\'' +
+                ", to_user_id=" + to_user_id +
+                '}';
+    }
 }
