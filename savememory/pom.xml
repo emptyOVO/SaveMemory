@@ -9,14 +9,15 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>savememory-api</module>
-        <module>savememory-provider-8001</module>
         <module>savememory-eureka-5001</module>
         <module>savememory-eureka-5002</module>
         <module>savememory-eureka-5003</module>
+        <module>savememory-provider-8001</module>
         <module>savememory-provider-8002</module>
         <module>savememory-provider-8003</module>
         <module>savememory-consumer-66</module>
         <module>savememory-consumer-hystrix-dashboard</module>
+        <module>savememory-zuul-9527</module>
     </modules>
 
     <!--打包方式  pom-->
@@ -90,6 +91,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>savememory</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
