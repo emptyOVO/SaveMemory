@@ -11,6 +11,12 @@
 
     <artifactId>savememory-zuul-9527</artifactId>
     <dependencies>
+        <!--Config-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
         <!--导入zuul依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

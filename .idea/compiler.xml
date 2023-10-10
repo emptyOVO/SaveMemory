@@ -7,12 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="savememory-zuul-9527" />
         <module name="savememory-consumer-66" />
         <module name="savememory-provider-8001" />
         <module name="savememory-eureka-5001" />
         <module name="savememory-provider-8002" />
         <module name="savememory-eureka-5002" />
         <module name="savememory-eureka-5003" />
+        <module name="savememory-consumer-hystrix-dashboard" />
         <module name="savememory-provider-8003" />
         <module name="savememory-api" />
       </profile>
@@ -21,12 +23,14 @@
       <module name="savememory" target="1.8" />
       <module name="savememory-api" target="1.8" />
       <module name="savememory-consumer-66" target="1.8" />
+      <module name="savememory-consumer-hystrix-dashboard" target="1.8" />
       <module name="savememory-eureka-5001" target="1.8" />
       <module name="savememory-eureka-5002" target="1.8" />
       <module name="savememory-eureka-5003" target="1.8" />
       <module name="savememory-provider-8001" target="1.8" />
       <module name="savememory-provider-8002" target="1.8" />
       <module name="savememory-provider-8003" target="1.8" />
+      <module name="savememory-zuul-9527" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

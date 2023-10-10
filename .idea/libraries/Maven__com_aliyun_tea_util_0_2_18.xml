@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.aliyun:tea-util:0.2.18">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/aliyun/tea-util/0.2.18/tea-util-0.2.18.jar!/" />
+      <root url="jar://D:/apache-maven-3.6.1-bin/repository/com/aliyun/tea-util/0.2.18/tea-util-0.2.18.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/aliyun/tea-util/0.2.18/tea-util-0.2.18-javadoc.jar!/" />
+      <root url="jar://D:/apache-maven-3.6.1-bin/repository/com/aliyun/tea-util/0.2.18/tea-util-0.2.18-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/aliyun/tea-util/0.2.18/tea-util-0.2.18-sources.jar!/" />
+      <root url="jar://D:/apache-maven-3.6.1-bin/repository/com/aliyun/tea-util/0.2.18/tea-util-0.2.18-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

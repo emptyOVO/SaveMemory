@@ -14,15 +14,11 @@
         <module name="savememory-provider-8002" />
         <module name="savememory-eureka-5002" />
         <module name="savememory-eureka-5003" />
+        <module name="savememory-config-server" />
         <module name="savememory-consumer-hystrix-dashboard" />
         <module name="savememory-provider-8003" />
         <module name="savememory-api" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="config-server-3344" target="1.8" />
-      <module name="savememory-consumer-80" target="1.8" />
-      <module name="savememory-eureka-7001" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

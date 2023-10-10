@@ -18,6 +18,7 @@
         <module>savememory-consumer-66</module>
         <module>savememory-consumer-hystrix-dashboard</module>
         <module>savememory-zuul-9527</module>
+        <module>savememory-config-server</module>
     </modules>
 
     <!--打包方式  pom-->

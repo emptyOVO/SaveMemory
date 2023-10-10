@@ -12,6 +12,12 @@
 
     <artifactId>savememory-provider-8003</artifactId>
     <dependencies>
+        <!--config-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
         <!--eureka依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
